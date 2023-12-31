@@ -11,15 +11,15 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('bg3.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
+            background-color: #f0f0f0; /* Minimalistic background color */
+            color: #333; /* Text color */
         }
 
         header {
-            background-color: rgba(145, 152, 146, 0.8);
+            background-color: #4d4d4d; /* Dark gray header background */
             text-align: center;
             padding: 10px;
+            color: #fff; /* Header text color */
         }
 
         .container {
@@ -33,6 +33,9 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            background-color: #fff; /* White background for articles */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Minimalistic shadow effect */
+            margin-bottom: 20px;
         }
 
         article ul {
@@ -40,8 +43,25 @@
             margin-left: 20px;
         }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4d4d4d;
+            color: #fff;
+        }
+
         footer {
-            background-color: rgba(145, 152, 146, 0.8);
+            background-color: #4d4d4d; /* Dark gray footer background */
             color: #fff;
             text-align: center;
             padding: 10px;
@@ -56,9 +76,8 @@
             margin-bottom: 10px;
         }
 
-        /* Gaya baru untuk warna biru tua dan kotak */
         h3 a {
-            color: #005eff; /* Warna biru tua */
+            color: #005eff; /* Blue link color */
             text-decoration: none;
             position: relative;
             display: inline-block;
@@ -67,11 +86,11 @@
         h3 a::before {
             content: '';
             position: absolute;
-            bottom: -5px; /* Sesuaikan dengan kebutuhan */
+            bottom: -10px;
             left: 0;
             width: 100%;
-            height: 2px; /* Ketebalan garis bawah */
-            background-color: #003366; /* Warna biru tua */
+            height: 2px;
+            background-color: #003366;
         }
     </style>
 </head>
@@ -80,7 +99,7 @@
 
     <header>
         <p>&copy; 2023 XENZA DIGITAL GROUP. All rights reserved. | 
-            <a href="mailto:xenzadigital@gmail.com">Bantuan</a>
+            <a href="mailto:xenzadigital@gmail.com" style="color: #fff;">Bantuan</a>
         </p>
     <script>
         // Ganti "YOUR_API_KEY" dengan API Key yang Anda dapatkan dari Aladhan
@@ -125,18 +144,78 @@
         </ul>
     </article>
     <article>
+        <h1>Kalender Kegiatan XENZA DIGITAL GROUP</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Keterangan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1 Januari 2024</td>
+                    <td>Pembaruan data saham</td>
+                </tr>
+                <tr>
+                    <td>2 Januari 2024</td>
+                    <td>Peluncuran produk saham terbaru</td>
+                </tr>
+                <tr>
+                    <td>5 Januari 2024</td>
+                    <td>Pembukaan pendaftaran magang</td>
+                </tr>
+                <tr>
+                    <td>8 Januari 2024</td>
+                    <td>Penerimaan alokasi aset baru (XDG MY)</td>
+                </tr>
+                <tr>
+                    <td>15 Januari 2024</td>
+                    <td>Pengkinia data anggota (XDG ID, XDG MY)</td>
+                </tr>
+                <tr>
+                    <td>30 Januari 2024</td>
+                    <td>Perkiraan kenaikan RDN</td>
+                </tr>
+                <tr>
+                    <td>5 Februari 2024</td>
+                    <td>Penutupan pendaftaran magang</td>
+                </tr>
+                <tr>
+                    <td>12 Februari 2024</td>
+                    <td>Pengunguman penerimaan magang</td>
+                </tr>
+                <tr>
+                    <td>16 Februari 2024</td>
+                    <td>Pembaruan data server</td>
+                </tr>
+                <tr>
+                    <td>19 Februari 2024</td>
+                    <td>Pembukaan penerimaan investor 2024</td>
+                </tr>
+                <tr>
+                    <td>26 Februari 2024</td>
+                    <td>Penutupan penerimaan investor 2024</td>
+                </tr>
+                <tr>
+                    <td>1 Meret 2024</td>
+                    <td>Pencairan dana investor 2023</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </article>
+    <article>
         <h1>AYO BERGABUNG BERSAMA KAMI</h1>
         <p>Kamu bisa mengikuti kegiatan magang atau bekerja dengan kami. Dan kamu juga bisa mengikuti kegiatan magang atau kerja 
             WFH atau WFO, ini sangat cocok jika kamu masih mahasiswa, tamatan SMA, maupun lulus S1
         </p>
         <p> Untuk pendaftaran silahkan klik pada kolom di bawah</p>
     </article>
-
     <div class="container">
-        <a href="daftar.html" class="box">Daftar Magang</a>
-        <a href="kerja.html" class="box">Daftar Kerja</a>
+        <a href="daftar.html" class="box" style="background-color: #005eff;">Daftar Magang</a>
+        <a href="kerja.html" class="box" style="background-color: #005eff;">Daftar Kerja</a>
     </div>
-    
     <footer>
         <div id="prayerTime"></div>
         <p>&copy; 2023 XENZA DIGITAL GROUP. All rights reserved.</p>
