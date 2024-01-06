@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Minimalistic background color */
+            color: #333; /* Text color */
+        }
+
+        header {
+            background-color: #4d4d4d; /* Dark gray header background */
+            text-align: center;
+            padding: 10px;
+            color: #fff; /* Header text color */
+            animation: fadeInDown 1s ease-out; /* Animation for header */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #4d4d4d; /* Dark gray background for navigation menu */
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            background-color: #fff;
+            color: #005eff; /* Warna biru */
+            border-color: #005eff; /* Warna biru */
+            border-radius: 50%;
+        }
+
+        nav a.active {
+            background-color: #fff;
+            color: #005eff; /* Warna biru */
+            border-color: #005eff; /* Warna biru */
+            border-radius: 8px; /* Mengembalikan bentuk kotak */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product {
+            width: 300px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product h3 {
+            margin-top: 0;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .buy-btn,
+        .fav-btn {
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            border-radius: 5px;
+        }
+
+        .buy-btn {
+            background-color: #4CAF50; /* Hijau */
+        }
+
+        .fav-btn {
+            background-color: #ccc; /* Abu-abu */
+        }
+
+        .fav-btn.active {
+            background-color: #f00; /* Merah */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>&copy; 2023 XENZA DIGITAL GROUP. All rights reserved.</p>
+        <p>
+            <a href="mailto:xenzadigital@gmail.com" style="color: #fff;">
+                <i class="fa-regular fa-envelope"></i> Email
+            </a> |
+            <a href="https://wa.me/message/WX4ZSF5UCSA7J1" style="color: #fff;" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+        </p>
+
+        <!-- Navigasi Menu -->
+        <nav>
+            <a href="index.html">
+                <i class="fa-solid fa-home"></i> Home
+            </a>
+            <a href="Market.html"class="active">
+                <i class="fa-solid fa-business-time"></i> Market
+            </a>
+            <a href="https://xenza.bukaolshop.site/">
+                <i class="fa-solid fa-ticket"></i> Web Top Up
+            </a>
+            <a href="Login.html">
+                <i class="fa-solid fa-user"></i> User
+            </a>
+        </nav>
+        <h1>MARKET RDN XENZA DIGITAL GROUP</h1>
+    </header>
+
+    <section>
+        <div class="product">
+            <img src="saham img.jpg" alt="Product 1">
+            <h3>XDG SAHAM</h3>
+            <P>PERFORMA : +15%/year</P>
+            <p>JENIS RDN : SAHAM</p>
+            <p>TINGKAT RESIKO : TINGGI</p>
+            <p>Min. Pembelian : Rp100.000</p>
+            <p>Bank Penampung : BCA</p>
+            <div class="buttons">
+                <button class="buy-btn" onclick="buy('Product 1')">Beli</button>
+                <button class="fav-btn" onclick="toggleFavorite(this)">Favorit</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="pasar uang.jpeg" alt="Product 1">
+            <h3>XDG PASAR UANG</h3>
+            <p>PERFORMA : +8%/year</p>
+            <p>JENIS RDN : PASAR UANG</p>
+            <p>TINGKAT RESIKO : RENDAH</p>
+            <p>Min. Pembelian : Rp10.000</p>
+            <p>Bank Penampung : MANDIRI</p>
+            <div class="buttons">
+                <button class="buy-btn" onclick="buy('Product 1')">Beli</button>
+                <button class="fav-btn" onclick="toggleFavorite(this)">Favorit</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="obligasi.jpg" alt="Product 1">
+            <h3>XDG OBLIGASI</h3>
+            <p>PERFORMA : +11,3%/year</p>
+            <p>JENIS RDN : OBLIGASI</p>
+            <p>TINGKAT RESIKO : TINGGI</p>
+            <p>Min. Pembelian : Rp50.000</p>
+            <p>Bank Penampung : BCA</p>
+            <div class="buttons">
+                <button class="buy-btn" onclick="buy('Product 1')">Beli</button>
+                <button class="fav-btn" onclick="toggleFavorite(this)">Favorit</button>
+            </div>
+        </div>
+        <!-- Tambahkan 7 produk lainnya dengan struktur yang serupa -->
+        
+    </section>
+
+    <script>
+        function buy(product) {
+            // Ganti dengan logika untuk mengarahkan ke halaman WhatsApp dengan pesan yang sesuai
+            var phoneNumber = '6287777483865';  // Ganti dengan nomor WhatsApp yang diinginkan
+            var message = 'Saya ingin membeli ' + product;
+    
+            // Membuat URL WhatsApp dengan nomor dan pesan
+            var whatsappURL = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+    
+            // Mengarahkan halaman ke URL WhatsApp
+            window.location.href = whatsappURL;
+        }
+    
+        function toggleFavorite(btn) {
+            btn.classList.toggle('active');
+        }
+    </script>
+    
+</body>
+</html>
