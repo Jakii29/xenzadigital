@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>XENZA DIGITAL GROUP</title>
     <style>
-        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -39,8 +39,12 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Minimalistic shadow effect */
             margin-bottom: 20px;
             animation: fadeInUp 1s ease-out; /* Animation for articles */
-            overflow-y: auto; /* Menambahkan overflow-y untuk membuat artikel dapat di-slide */
+            overflow-y: hidden; /* Menambahkan overflow-y untuk membuat artikel dapat di-slide */
             max-height: 400px; /* Sesuaikan dengan kebutuhan tinggi maksimum */
+        }
+
+        article.scrollable {
+            overflow-y: auto; /* Tambahkan efek scroll hanya pada artikel dengan class "scrollable" */
         }
 
         article ul {
@@ -54,7 +58,8 @@
             margin-top: 20px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
@@ -105,6 +110,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -116,11 +122,13 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         nav {
             display: flex;
             justify-content: space-around;
@@ -164,7 +172,7 @@
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
         </p>
-        
+
         <!-- Navigasi Menu -->
         <nav>
             <a href="#" class="active">
@@ -181,23 +189,22 @@
             </a>
         </nav>
     </header>
-    
+
     <script>
-        
         const apiKey = 'YOUR_API_KEY';
-    
+
         // Mendapatkan waktu sholat untuk lokasi tertentu (Jakarta)
         const city = 'Jakarta';
         const country = 'Indonesia';
-    
+
         const apiUrl = `https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}&method=2&school=1&apikey=${apiKey}`;
-    
+
         // Mendapatkan data waktu sholat dari API
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
                 const prayerTimes = data.data.timings;
-    
+
                 // Menampilkan waktu sholat pada elemen dengan id "prayerTime"
                 document.getElementById('prayerTime').innerHTML = `
                     <h3>Waktu Sholat di ${city}, ${country}</h3>
@@ -210,26 +217,27 @@
             })
             .catch(error => console.error('Error fetching prayer time:', error));
     </script>
-    </header>
+
     <article>
         <h2>XENZA DIGITAL GROUP</h2>
         <ul>
-            <p>Perusahaan digital merupakan entitas bisnis yang secara utama beroperasi di ranah online dan mengintegrasikan 
+            <p>Perusahaan digital merupakan entitas bisnis yang secara utama beroperasi di ranah online dan mengintegrasikan
                 teknologi informasi dalam setiap aspek operasionalnya.</p>
-        <h3>Kami bergerak pada bidang</h3>
-                <li>XDG JUAL BELI (akun game) </li>
-                <li>XDG TOP UP (E-Wallet, Vocher game, Pulsa) </li>
-                <li>XDG JASA (Jasa admin, Jasa CS) </li>
-                <li>XDG INVESTASI (Jasa membantu untuk memberikan produk reksadana terbaik)</li>
-        <h3><a href="saham.html">LIHAT PEMEGANG SAHAM DISINI
-            <i class="fa-regular fa-file-lines"></i>
-        </a></h3>
-        <h3><a href="rdn.html">LIHAT PEMEGANG RDN DISINI
-            <i class="fa-regular fa-file-lines"></i>
-        </a></h3>
+            <h3>Kami bergerak pada bidang</h3>
+            <li>XDG JUAL BELI (akun game) </li>
+            <li>XDG TOP UP (E-Wallet, Vocher game, Pulsa) </li>
+            <li>XDG JASA (Jasa admin, Jasa CS) </li>
+            <li>XDG INVESTASI (Jasa membantu untuk memberikan produk reksadana terbaik)</li>
+            <h3><a href="saham.html">LIHAT PEMEGANG SAHAM DISINI
+                    <i class="fa-regular fa-file-lines"></i>
+                </a></h3>
+            <h3><a href="rdn.html">LIHAT PEMEGANG RDN DISINI
+                    <i class="fa-regular fa-file-lines"></i>
+                </a></h3>
         </ul>
     </article>
-    <article>
+
+    <article class="scrollable"> <!-- Tambahkan class "scrollable" untuk memberikan efek scroll pada artikel ini -->
         <h1>Cari Kegiatan</h1>
         <form action="search.html" method="get">
             <input type="text" name="query" placeholder="Sedang Maintenance">
@@ -292,17 +300,17 @@
                     <td>1 Meret 2024</td>
                     <td>Pencairan dana investor 2023</td>
                 </tr>
-                
             </tbody>
         </table>
     </article>
+
     <article>
         <h1>AYO BERGABUNG BERSAMA KAMI</h1>
-        <p>Kamu bisa mengikuti kegiatan magang atau bekerja dengan kami. Dan kamu juga bisa mengikuti kegiatan magang atau kerja 
+        <p>Kamu bisa mengikuti kegiatan magang atau bekerja dengan kami. Dan kamu juga bisa mengikuti kegiatan magang atau kerja
             WFH atau WFO, ini sangat cocok jika kamu masih mahasiswa, tamatan SMA, maupun lulus S1
         </p>
         <p> Untuk pendaftaran silahkan klik pada kolom di bawah</p>
-    
+
         <!-- Pindahkan div.container ke dalam artikel ini -->
         <div class="container">
             <a href="daftar.html" class="box" style="background-color: #005eff;">
@@ -312,10 +320,12 @@
                 <i class="fas fa-briefcase"></i> Daftar Kerja
             </a>
         </div>
-    </article> 
+    </article>
+
     <footer>
         <div id="prayerTime"></div>
         <p>&copy; 2023 XENZA DIGITAL GROUP. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
