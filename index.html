@@ -157,6 +157,35 @@
             border-color: #005eff; /* Warna biru */
             border-radius: 8px; /* Mengembalikan bentuk kotak */
         }
+         /* Animasi untuk tulisan bergerak */
+        @keyframes moveText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .moving-text {
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: moveText 15s linear infinite; /* Animasi selama 13 detik, bergerak secara linier dan berulang */
+        }
+
+        .moving-text .greet,
+        .moving-text .time {
+            margin-right: 10px; /* Tambahkan margin antara dua elemen */
+        }
+
+        .moving-text .greet {
+            color: #000000; /* Warna tulisan hitam */
+        }
+
+        .moving-text .time {
+            color: #00ff00; /* Warna tulisan hijau */
+        }
     </style>
 </head>
 
@@ -240,7 +269,11 @@
         // Panggil fungsi untuk mendapatkan lokasi pengguna dan waktu sholat
         getLocation();
     </script>
-
+<div class="moving-text">
+    <span class="greet">Market :</span>
+    <span class="greet">XDG SAHAM</span><span class="time">+23%</span>,
+    <span class="greet">XDG PSR UANG</span><span class="time">+11,7%</span>
+</div>    
     <article>
         <h1>XENZA DIGITAL GROUP</h1>
         <ul>
