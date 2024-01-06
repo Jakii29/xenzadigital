@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>XENZA DIGITAL GROUP</title>
     <style>
@@ -20,6 +20,7 @@
             text-align: center;
             padding: 10px;
             color: #fff; /* Header text color */
+            animation: fadeInDown 1s ease-out; /* Animation for header */
         }
 
         .container {
@@ -30,12 +31,13 @@
         }
 
         article {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             padding: 20px;
             background-color: #fff; /* White background for articles */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Minimalistic shadow effect */
             margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out; /* Animation for articles */
         }
 
         article ul {
@@ -68,6 +70,7 @@
             position: relative;
             bottom: 0;
             width: 100%;
+            animation: fadeInUp 1s ease-out; /* Animation for footer */
         }
 
         #prayerTime {
@@ -92,22 +95,54 @@
             height: 2px;
             background-color: #003366;
         }
-    </style>
+
+        /* Keyframes for fadeInDown and fadeInUp animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>>
 </head>
 
 <body>
 
     <header>
-        <p>&copy; 2023 XENZA DIGITAL GROUP. All rights reserved. | 
-            <a href="mailto:xenzadigital@gmail.com" style="color: #fff;">Bantuan</a>
-            <p>
-                <a href="https://wa.me/message/WX4ZSF5UCSA7J1" style="color: #fff;" target="_blank">WhatsApp</a>
-            </p>
+        <p>&copy; 2023 XENZA DIGITAL GROUP. All rights reserved.</p>
+        <p>
+            <a href="mailto:xenzadigital@gmail.com" style="color: #fff;">
+                <i class="fa-regular fa-envelope"></i> Email
+            </a> |
+            <a href="https://wa.me/message/WX4ZSF5UCSA7J1" style="color: #fff;" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
         </p>
         <nav>
-            <a href="" style="color: #fff;">Market</a> |
-            <a href="https://xenza.bukaolshop.site/" style="color: #fff;">Top Up</a>
+            <a href="" style="color: #fff;">
+                <i class="fa-solid fa-business-time"></i> Market
+            </a> |
+            <a href="top up.html" style="color: #fff;">
+                <i class="fa-solid fa-ticket"></i> Web Top Up
+            </a>
         </nav>
+    </header>
+    
     <script>
         
         const apiKey = 'YOUR_API_KEY';
@@ -147,11 +182,20 @@
                 <li>XDG TOP UP (E-Wallet, Vocher game, Pulsa) </li>
                 <li>XDG JASA (Jasa admin, Jasa CS) </li>
                 <li>XDG INVESTASI (Jasa membantu untuk memberikan produk reksadana terbaik)</li>
-        <h3><a href="saham.html">LIHAT PEMEGANG SAHAM DISINI</a></h3>
-        <h3><a href="rdn.html">LIHAT PEMEGANG RDN DISINI</a></h3>
+        <h3><a href="saham.html">LIHAT PEMEGANG SAHAM DISINI
+            <i class="fa-regular fa-file-lines"></i>
+        </a></h3>
+        <h3><a href="rdn.html">LIHAT PEMEGANG RDN DISINI
+            <i class="fa-regular fa-file-lines"></i>
+        </a></h3>
         </ul>
     </article>
     <article>
+        <h1>Cari Kegiatan</h1>
+        <form action="search.html" method="get">
+            <input type="text" name="query" placeholder="Sedang Maintenance">
+            <button type="submit">Cari</button>
+        </form>
         <h1>Kalender Kegiatan XENZA DIGITAL GROUP</h1>
         <table>
             <thead>
@@ -221,9 +265,14 @@
         <p> Untuk pendaftaran silahkan klik pada kolom di bawah</p>
     </article>
     <div class="container">
-        <a href="daftar.html" class="box" style="background-color: #005eff;">Daftar Magang</a>
-        <a href="kerja.html" class="box" style="background-color: #005eff;">Daftar Kerja</a>
+        <a href="daftar.html" class="box" style="background-color: #005eff;">
+            <i class="fas fa-user-plus"></i> Daftar Magang
+        </a>
+        <a href="kerja.html" class="box" style="background-color: #005eff;">
+            <i class="fas fa-briefcase"></i> Daftar Kerja
+        </a>
     </div>
+    
     <footer>
         <div id="prayerTime"></div>
         <p>&copy; 2023 XENZA DIGITAL GROUP. All rights reserved.</p>
