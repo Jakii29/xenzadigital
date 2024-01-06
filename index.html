@@ -193,29 +193,52 @@
     <script>
         const apiKey = 'YOUR_API_KEY';
 
-        // Mendapatkan waktu sholat untuk lokasi tertentu (Jakarta)
-        const city = 'Jakarta';
-        const country = 'Indonesia';
+        // Fungsi untuk mendapatkan waktu sholat berdasarkan lokasi pengguna
+        function getPrayerTimesByLocation(latitude, longitude) {
+            const apiUrl = `https://api.aladhan.com/v1/timings?latitude=${latitude}&longitude=${longitude}&method=2&school=1&apikey=${apiKey}`;
 
-        const apiUrl = `https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}&method=2&school=1&apikey=${apiKey}`;
+            // Mendapatkan data waktu sholat dari API
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const prayerTimes = data.data.timings;
 
-        // Mendapatkan data waktu sholat dari API
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const prayerTimes = data.data.timings;
+                    // Menampilkan waktu sholat pada elemen dengan id "prayerTime"
+                    document.getElementById('prayerTime').innerHTML = `
+                        <h3>Waktu Sholat di Lokasi Anda</h3>
+                        <p>Fajr: ${prayerTimes.Fajr}</p>
+                        <p>Dhuhr: ${prayerTimes.Dhuhr}</p>
+                        <p>Asr: ${prayerTimes.Asr}</p>
+                        <p>Maghrib: ${prayerTimes.Maghrib}</p>
+                        <p>Isha: ${prayerTimes.Isha}</p>
+                    `;
+                })
+                .catch(error => console.error('Error fetching prayer time:', error));
+        }
 
-                // Menampilkan waktu sholat pada elemen dengan id "prayerTime"
-                document.getElementById('prayerTime').innerHTML = `
-                    <h3>Waktu Sholat di ${city}, ${country}</h3>
-                    <p>Fajr: ${prayerTimes.Fajr}</p>
-                    <p>Dhuhr: ${prayerTimes.Dhuhr}</p>
-                    <p>Asr: ${prayerTimes.Asr}</p>
-                    <p>Maghrib: ${prayerTimes.Maghrib}</p>
-                    <p>Isha: ${prayerTimes.Isha}</p>
-                `;
-            })
-            .catch(error => console.error('Error fetching prayer time:', error));
+        // Fungsi untuk mendapatkan lokasi pengguna
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+
+                    // Panggil fungsi untuk mendapatkan waktu sholat berdasarkan lokasi
+                    getPrayerTimesByLocation(latitude, longitude);
+                }, error => {
+                    console.error('Error getting location:', error);
+                    // Jika terjadi kesalahan, menggunakan lokasi default (Jakarta)
+                    getPrayerTimesByLocation(-6.2088, 106.8456); // Ganti dengan koordinat lokasi default Anda
+                });
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+                // Jika geolocation tidak didukung, menggunakan lokasi default (Jakarta)
+                getPrayerTimesByLocation(-6.2088, 106.8456); // Ganti dengan koordinat lokasi default Anda
+            }
+        }
+
+        // Panggil fungsi untuk mendapatkan lokasi pengguna dan waktu sholat
+        getLocation();
     </script>
 
     <article>
