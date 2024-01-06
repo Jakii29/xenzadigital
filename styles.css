@@ -32,3 +32,40 @@ article {
     margin: 0 auto;
     padding: 20px;
 }
+/* ... Kode CSS lainnya ... */
+
+article {
+    max-width: 60px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px; /* Sesuaikan lebar maksimum container */
+    margin: 0 auto; /* Pusatkan container */
+}
+
+.box {
+    text-decoration: none;
+    color: #fff;
+    background-color: #005eff;
+    padding: 10px; /* Sesuaikan padding */
+    margin: 5px; /* Sesuaikan margin */
+    font-size: 16px; /* Sesuaikan ukuran font */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.box:hover {
+    background-color: #003366;
+}
+
+/* ... Kode CSS lainnya ... */
