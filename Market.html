@@ -159,18 +159,18 @@
         <div class="product">
             <img src="saham img.jpg" alt="Product 1">
             <h3>XDG SAHAM</h3>
-            <P>PERFORMA : +15%/year</P>
+            <p>PERFORMA : +15%/year</p>
             <p>JENIS RDN : SAHAM</p>
             <p>TINGKAT RESIKO : TINGGI</p>
             <p>Min. Pembelian : Rp100.000</p>
             <p>Bank Penampung : BCA</p>
             <div class="buttons">
-                <button class="buy-btn" onclick="buy('Product 1')">Beli</button>
+                <button class="buy-btn" onclick="buy('XDG SAHAM', 'PERFORMA : +15%/year', 'JENIS RDN : SAHAM', 'TINGKAT RESIKO : TINGGI', 'Min. Pembelian : Rp100.000', 'Bank Penampung : BCA')">Beli</button>
                 <button class="fav-btn" onclick="toggleFavorite(this)">Favorit</button>
             </div>
         </div>
         <div class="product">
-            <img src="pasar uang.jpeg" alt="Product 1">
+            <img src="pasar uang.jpeg" alt="Product 2">
             <h3>XDG PASAR UANG</h3>
             <p>PERFORMA : +8%/year</p>
             <p>JENIS RDN : PASAR UANG</p>
@@ -178,12 +178,12 @@
             <p>Min. Pembelian : Rp10.000</p>
             <p>Bank Penampung : MANDIRI</p>
             <div class="buttons">
-                <button class="buy-btn" onclick="buy('Product 1')">Beli</button>
+                <button class="buy-btn" onclick="buy('XDG PASAR UANG', 'PERFORMA : +8%/year', 'JENIS RDN : PASAR UANG', 'TINGKAT RESIKO : RENDAH', 'Min. Pembelian : Rp10.000', 'Bank Penampung : MANDIRI')">Beli</button>
                 <button class="fav-btn" onclick="toggleFavorite(this)">Favorit</button>
             </div>
         </div>
         <div class="product">
-            <img src="obligasi.jpg" alt="Product 1">
+            <img src="obligasi.jpg" alt="Product 3">
             <h3>XDG OBLIGASI</h3>
             <p>PERFORMA : +11,3%/year</p>
             <p>JENIS RDN : OBLIGASI</p>
@@ -191,19 +191,24 @@
             <p>Min. Pembelian : Rp50.000</p>
             <p>Bank Penampung : BCA</p>
             <div class="buttons">
-                <button class="buy-btn" onclick="buy('Product 1')">Beli</button>
+                <button class="buy-btn" onclick="buy('XDG OBLIGASI', 'PERFORMA : +11,3%/year', 'JENIS RDN : OBLIGASI', 'TINGKAT RESIKO : TINGGI', 'Min. Pembelian : Rp50.000', 'Bank Penampung : BCA')">Beli</button>
                 <button class="fav-btn" onclick="toggleFavorite(this)">Favorit</button>
             </div>
         </div>
         <!-- Tambahkan 7 produk lainnya dengan struktur yang serupa -->
-        
     </section>
-
+    
     <script>
-        function buy(product) {
+        function buy(product, performance, type, risk, minPurchase, bank) {
             // Ganti dengan logika untuk mengarahkan ke halaman WhatsApp dengan pesan yang sesuai
             var phoneNumber = '6287777483865';  // Ganti dengan nomor WhatsApp yang diinginkan
-            var message = 'Saya ingin membeli ' + product;
+            var message = 'Saya ingin membeli ' + product + '\n\n' +
+                          'Informasi Produk:\n' +
+                          performance + '\n' +
+                          type + '\n' +
+                          risk + '\n' +
+                          minPurchase + '\n' +
+                          bank;
     
             // Membuat URL WhatsApp dengan nomor dan pesan
             var whatsappURL = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
@@ -216,6 +221,7 @@
             btn.classList.toggle('active');
         }
     </script>
+    
     
 </body>
 </html>
