@@ -203,12 +203,61 @@
 #helpButton:hover {
     background-color: #003366;
 }
+#helpForm {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            z-index: 999;
+        }
+
+        #helpForm label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #helpForm textarea {
+            width: 100%;
+            height: 100px;
+            resize: none;
+        }
+
+        #helpForm button {
+            background-color: #005eff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #helpForm button:hover {
+            background-color: #003366;
+        }
 
     </style>
 </head>
 
 <body>
+    <div id="helpForm">
+        <label for="email">Email User:</label>
+        <input type="text" id="email" required>
 
+        <label for="name">Nama User:</label>
+        <input type="text" id="name" required>
+
+        <label for="report">Laporan User:</label>
+        <textarea id="report" required></textarea>
+
+        <button onclick="sendHelpMessage()">Kirim</button>
+    </div>
     <header>
         <p>&copy; 2021-2024 XENZA DIGITAL GROUP. All rights reserved.</p>
         <p>
@@ -237,26 +286,35 @@
     </header>
    
     <script>
+         function showHelpForm() {
+            document.getElementById('helpForm').style.display = 'block';
+        }
+
+        // Fungsi untuk mengirim pesan bantuan
+        function sendHelpMessage() {
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value;
+            const report = document.getElementById('report').value;
+
+            // Kirim pesan ke email
+            const emailRecipient = 'xenzadigital@gmail.com';
+            const subject = 'Pesan Bantuan XENZA DIGITAL GROUP';
+            const body = `Email User: ${email}\nNama User: ${name}\n\nLaporan User:\n${report}`;
+
+            window.location.href = `mailto:${emailRecipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Tampilkan notifikasi balasan otomatis
+            alert(`Terimakasih ${name}, laporan kamu telah kami terima`);
+
+            // Sembunyikan formulir setelah mengirim pesan
+            document.getElementById('helpForm').style.display = 'none';
+        }
+
         function showHelpForm() {
         document.getElementById('helpForm').style.display = 'block';
     }
 
-    function sendHelpMessage() {
-        const helpMessage = document.getElementById('helpMessage').value;
-
-        // Kirim pesan ke email
-        const email = 'xenzadigital@gmail.com';
-        const subject = 'Pesan Bantuan XENZA DIGITAL GROUP';
-        const body = `Pesan dari pengguna:\n\n${helpMessage}`;
-
-        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-        // Tampilkan notifikasi balasan otomatis
-        alert('Terimakasih pesan kamu telah kami terima');
-
-        // Sembunyikan formulir setelah mengirim pesan
-        document.getElementById('helpForm').style.display = 'none';
-    }
+    
         const apiKey = 'YOUR_API_KEY';
 
         // Fungsi untuk mendapatkan waktu sholat berdasarkan lokasi pengguna
