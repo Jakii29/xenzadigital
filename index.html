@@ -187,13 +187,30 @@
         .moving-text .time {
             color: #00ff00; /* Warna tulisan hijau */
         }
+        #helpButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #005eff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#helpButton:hover {
+    background-color: #003366;
+}
+
     </style>
 </head>
 
 <body>
 
     <header>
-        <p>&copy; 2023 XENZA DIGITAL GROUP. All rights reserved.</p>
+        <p>&copy; 2021-2024 XENZA DIGITAL GROUP. All rights reserved.</p>
         <p>
             <a href="mailto:xenzadigital@gmail.com" style="color: #fff;">
                 <i class="fa-regular fa-envelope"></i> Email
@@ -201,7 +218,6 @@
             <a href="https://wa.me/message/WX4ZSF5UCSA7J1" style="color: #fff;" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
-        </p>
 
         <!-- Navigasi Menu -->
         <nav>
@@ -219,8 +235,28 @@
             </a>
         </nav>
     </header>
-
+   
     <script>
+        function showHelpForm() {
+        document.getElementById('helpForm').style.display = 'block';
+    }
+
+    function sendHelpMessage() {
+        const helpMessage = document.getElementById('helpMessage').value;
+
+        // Kirim pesan ke email
+        const email = 'xenzadigital@gmail.com';
+        const subject = 'Pesan Bantuan XENZA DIGITAL GROUP';
+        const body = `Pesan dari pengguna:\n\n${helpMessage}`;
+
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // Tampilkan notifikasi balasan otomatis
+        alert('Terimakasih pesan kamu telah kami terima');
+
+        // Sembunyikan formulir setelah mengirim pesan
+        document.getElementById('helpForm').style.display = 'none';
+    }
         const apiKey = 'YOUR_API_KEY';
 
         // Fungsi untuk mendapatkan waktu sholat berdasarkan lokasi pengguna
@@ -282,7 +318,7 @@
        
 <div class="moving-text">
     <span class="greet">Market :</span>
-    <span class="greet">XDG SAHAM</span><span class="time">+25%</span>
+    <span class="greet">XDG SAHAM</span><span class="time">+23%</span>
 </div>    
         <h1>XENZA DIGITAL GROUP</h1>
         <ul>
@@ -414,6 +450,9 @@
     <footer>
         <div id="prayerTime"></div>
         <p>&copy; 2023 XENZA DIGITAL GROUP. All rights reserved.</p>
+         <button onclick="showHelpForm()" id="helpButton">
+        <i class="fa-solid fa-question-circle"></i> Bantuan
+    </button>
     </footer>
 </body>
 
