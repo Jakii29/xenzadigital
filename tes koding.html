@@ -210,7 +210,7 @@
       <a href="#">Tes Bahasa</a>
     </nav>
   </header>
-
+<p>Pada saat ini hanya bisa menjalankan bahasa pemograman Javascript, Phyton, PHP yang terdapat di dalam bagian HTML</p>
   <div id="codeEditor">
     <textarea id="code" placeholder="Write your code here..." oninput="highlightCode()"></textarea>
     <button id="runButton" onclick="runCode()">Run</button>
@@ -256,31 +256,64 @@
     }
 
     function runCode() {
-      var outputDiv = document.getElementById('output');
-      var language = editor.getOption('mode');
+  var outputDiv = document.getElementById('output');
+  var language = editor.getOption('mode');
+  var code = editor.getValue();
 
-      outputDiv.innerHTML = '';
+  outputDiv.innerHTML = '';
 
-      // Simulate code execution
-      try {
-        eval(editor.getValue());
-      } catch (error) {
-        // Display error message with line highlighting
-        var errorMessage = 'Error: ' + error.message;
-        outputDiv.innerHTML = '<div style="color: #F44336;">' + errorMessage + '</div>';
-        highlightErrorLine(error);
-      }
-    }
+  if (language === 'htmlmixed' || language === 'css') {
+    // Jika kode adalah HTML atau CSS, pasang ke elemen iframe
+    var iframe = document.createElement('iframe');
+    iframe.width = '100%';
+    iframe.height = '300px';
+    iframe.style.border = 'none';
+    outputDiv.appendChild(iframe);
 
-    function highlightErrorLine(error) {
-      var lines = error.stack.split('\n');
-      if (lines.length > 1) {
-        var errorLine = parseInt(lines[1].match(/<anonymous>:(\d+):\d+/)[1]) - 1;
+    // Dokumen dalam iframe untuk menulis kode HTML dan CSS
+    var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    iframeDocument.open();
+    iframeDocument.write(code);
+    iframeDocument.close();
+  } else if (language === 'python') {
+    // Jika kode adalah Python, kirim ke server untuk dieksekusi
+    fetch('https://your-python-execution-server/execute', {
+      method: 'POST',
+      body: JSON.stringify({ code: code }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(response => response.text())
+      .then(result => {
+        outputDiv.textContent = result;
+      })
+      .catch(error => {
+        outputDiv.innerHTML = '<div style="color: #F44336;">Error: ' + error.message + '</div>';
+      });
+  } else if (language === 'php') {
+    // Jika kode adalah PHP, kirim ke server untuk dieksekusi
+    fetch('https://your-php-execution-server/execute', {
+      method: 'POST',
+      body: JSON.stringify({ code: code }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(response => response.text())
+      .then(result => {
+        outputDiv.textContent = result;
+      })
+      .catch(error => {
+        outputDiv.innerHTML = '<div style="color: #F44336;">Error: ' + error.message + '</div>';
+      });
+  } else {
+    // Selain HTML, CSS, Python, dan PHP, gunakan CodeMirror untuk menyorot sintaks
+    CodeMirror.runMode(code, language, outputDiv);
+  }
+}
 
-        // Highlight the error line
-        editor.addLineClass(errorLine, 'background', 'line-error');
-      }
-    }
+
   </script>
 </body>
 </html>
