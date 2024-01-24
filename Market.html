@@ -19,7 +19,7 @@
         }
 
         header {
-            background-color: #49e4ff;
+            background-color: #6495ED;
             text-align: center;
             padding: 10px;
             color: #fff;
@@ -30,7 +30,7 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            background-color: #00eaff;
+            background-color: #1541de;
             padding: 10px;
             border-radius: 8px;
         }
@@ -45,17 +45,22 @@
         }
 
         nav a:hover {
-            background-color: #fff;
-            color: #005eff;
-            border-color: #005eff;
-            border-radius: 50%;
-        }
+            background-color: #6495ED; /* Warna background saat dihover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Bayangan saat dihover */
+}
+        
 
         nav a.active {
-            background-color: #fff;
-            color: #005eff;
-            border-color: #005eff;
-            border-radius: 8px;
+            padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background: linear-gradient(to right, #87CEEB, #6495ED); /* Gradasi warna biru muda */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Sudut sedikit melengkung */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transisi pada warna latar dan bayangan */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan awal */
+    font-family: 'Anonymous Pro', monospace;
         }
 
         section {
@@ -224,7 +229,7 @@
                 { x: 2022, y: 67 },
                 { x: 2023, y: 60 }, // Penurunan pada tahun 2023
                 { x: 2024, y: 121 },
-                { x: 2024, y: 100},
+                { x: 2024, y: 100 },
             ];
     
             // Simulasi data untuk grafik prediksi (kuning)
